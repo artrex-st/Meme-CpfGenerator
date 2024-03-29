@@ -59,5 +59,10 @@ namespace Gerador_de_CPF
             
             return $"{cpf}{verifyDigit}{verifyDigit2}";
         }
+
+        private void GenerateCpfBtn_Click(object sender, EventArgs e)
+        {
+            CpfValueMasked.Text = GenerateCpf();
+        }
     }
 }
