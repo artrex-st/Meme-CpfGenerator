@@ -26,13 +26,19 @@ namespace Gerador_de_CPF
             int findVerifyDigit = 10;
             int validationVerifyDigit = 11;
 
-            for (int i = 0; i < 10; i++)
+            do
             {
-                int number = rng.Next(0, 10);
-                sum1 += number * (findVerifyDigit - i);
-                sum2 += number * (validationVerifyDigit - i);
-                cpf += number;
-            }
+                for (int i = 0; i < 10; i++)
+                {
+                    int number = rng.Next(0, 10);
+                    sum1 += number * (findVerifyDigit - i);
+                    sum2 += number * (validationVerifyDigit - i);
+                    cpf += number;
+                }
+            } while (
+                cpf == "000000000" || cpf == "111111111" || cpf == "222222222" || cpf == "333333333" || cpf == "444444444"
+                || cpf == "555555555" || cpf == "666666666" || cpf == "777777777" || cpf == "888888888" || cpf == "999999999"
+                );
 
             int verifyDigit = sum1 % 11;
 
